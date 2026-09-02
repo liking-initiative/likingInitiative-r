@@ -8,7 +8,7 @@ It never changes data.
 
 - A problem with the data (a rating, a scale, an item name, a missing
   dataset): the [database
-  repository](https://github.com/kiante-fernandez/liking-rating-database).
+  repository](https://github.com/liking-initiative/liking-rating-database).
   Data corrections there go through versioned migrations and appear here
   as a new release version.
 - A problem with this package (an error, a wrong tibble, a missing
