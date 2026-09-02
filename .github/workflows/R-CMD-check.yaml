@@ -1,0 +1,91 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+name: R-CMD-check
+
+permissions: read-all
+
+jobs:
+  R-CMD-check:
+    runs-on: ${{ matrix.config.os }}
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macos-latest,   r: 'release'}
+          - {os: windows-latest, r: 'release'}
+          - {os: ubuntu-latest,  r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-latest,  r: 'release'}
+          - {os: ubuntu-latest,  r: 'oldrel-1'}
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.config.r }}
+          http-user-agent: ${{ matrix.config.http-user-agent }}
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
+      - uses: r-lib/actions/check-r-package@v2
+        with:
+          args: 'c("--no-manual", "--as-cran")'
+          error-on: '"note"'
+          upload-snapshots: true
+
+  tests:
+    name: Tests against release 1.6.2
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      RELEASE_VERSION: "1.6.2"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::testthat, any::pkgload
+      - id: cache
+        uses: actions/cache@v4
+        with:
+          path: release
+          key: zenodo-release-${{ env.RELEASE_VERSION }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: Rscript .github/scripts/fetch_release.R "$RELEASE_VERSION" release
+      - name: Run the suite; every test must run, none may skip
+        run: |
+          Rscript -e '
+            res <- as.data.frame(testthat::test_local(".", stop_on_failure = TRUE, reporter = "summary"))
+            cat(sprintf("\n%d passed, %d failed, %d skipped\n", sum(res$passed), sum(res$failed), sum(res$skipped)))
+            stopifnot(sum(res$skipped) == 0, sum(res$passed) > 0)'
+        env:
+          LIKING_INITIATIVE_RELEASE_DIR: ${{ github.workspace }}/release
+          LIKING_INITIATIVE_CACHE_DIR: ${{ runner.temp }}/likingInitiative-cache
+
+  zenodo:
+    name: Real Zenodo path
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+      - uses: r-lib/actions/setup-r-dependencies@v2
+      - run: R CMD INSTALL .
+      - run: Rscript .github/scripts/zenodo_smoke.R
+        env:
+          LIKING_INITIATIVE_CACHE_DIR: ${{ runner.temp }}/likingInitiative-cache
