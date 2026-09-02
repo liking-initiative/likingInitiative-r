@@ -25,5 +25,5 @@ Imports:
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://liking-initiative.github.io/likingInitiative-r/, https://github.com/liking-initiative/likingInitiative-r
+URL: https://liking-rating-frontend.onrender.com, https://github.com/liking-initiative/likingInitiative-r
 BugReports: https://github.com/liking-initiative/likingInitiative-r/issues
