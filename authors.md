@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Kianté Fernandez**. Author, maintainer.
+- **Kianté Fernandez**. Author, maintainer, copyright holder.
 
 ## Citation
 

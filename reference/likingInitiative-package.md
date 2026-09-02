@@ -34,4 +34,5 @@ Useful links:
 
 ## Author
 
-**Maintainer**: Kianté Fernandez <kiantefernan@gmail.com>
+**Maintainer**: Kianté Fernandez <kiantefernan@gmail.com> \[copyright
+holder\]
