@@ -7,7 +7,7 @@ decision-making studies, as tibbles.
 
 ```r
 # install.packages("devtools")
-devtools::install_github("kiante-fernandez/liking-rating-database", subdir = "clients/r")
+devtools::install_github("liking-initiative/likingInitiative-r")
 ```
 
 ## Use
