@@ -35,7 +35,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Kianté Fernandez \email{kiantefernan@gmail.com}
+\strong{Maintainer}: Kianté Fernandez \email{kiantefernan@gmail.com} [copyright holder]
 
 }
 \keyword{internal}
