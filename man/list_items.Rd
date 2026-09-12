@@ -16,7 +16,7 @@ A tibble with one row per item.
 List the stimuli in the database
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 list_items()
-}
+\dontshow{\}) # examplesIf}
 }

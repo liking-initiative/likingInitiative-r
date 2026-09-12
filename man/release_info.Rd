@@ -16,7 +16,7 @@ A list describing the release.
 Version, date and headline counts for the release in use
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 release_info()
-}
+\dontshow{\}) # examplesIf}
 }

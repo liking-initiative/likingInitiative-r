@@ -10,11 +10,9 @@
 #' @param version Release version, or `"latest"`.
 #' @return An object of class `likingInitiative_item` with `data`, `datasets` and
 #'   `version`.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' k <- get_item("kitkat")
 #' k$data
-#' }
 #' @export
 get_item <- function(item, version = "latest") {
   db <- load_database(version)

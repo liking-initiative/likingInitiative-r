@@ -146,10 +146,8 @@ cache_info <- function() {
 #'
 #' @param version Version to remove. `NULL` (default) clears every version.
 #' @return Invisibly, the number of bytes freed.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' clear_cache()
-#' }
 #' @export
 clear_cache <- function(version = NULL) {
   target <- get_cache_dir(version, create = FALSE)
@@ -250,10 +248,8 @@ load_catalog <- function(version = "latest") {
 #'
 #' @param version Release version, or `"latest"`.
 #' @return A list describing the release.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' release_info()
-#' }
 #' @export
 release_info <- function(version = "latest") {
   load_catalog(version)$release

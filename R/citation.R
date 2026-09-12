@@ -51,10 +51,8 @@ cite.likingInitiative_item <- function(x, ...) {
 #' @param x A dataset from [get_dataset()].
 #' @param ... Unused.
 #' @return A character string holding a BibTeX entry.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' bibtex(get_dataset("leeholyoak2021"))
-#' }
 #' @export
 bibtex <- function(x, ...) UseMethod("bibtex")
 

@@ -1,5 +1,8 @@
 # likingInitiative 0.2.1
 
+* Examples that download are guarded with `@examplesIf interactive()` rather
+  than `\donttest{}`, so `R CMD check` runs none of them and leaves the
+  cache untouched.
 * A pinned `version =` now downloads that version's files. Previously the
   version label was honoured in the cache path but the newest release's files
   were fetched, which would have silently drifted once a newer release existed.

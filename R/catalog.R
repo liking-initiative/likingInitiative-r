@@ -2,10 +2,8 @@
 #'
 #' @param version Release version, or `"latest"`.
 #' @return A tibble with one row per study.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' list_studies()
-#' }
 #' @export
 list_studies <- function(version = "latest") {
   rows <- load_catalog(version)$studies
@@ -28,10 +26,8 @@ list_studies <- function(version = "latest") {
 #'
 #' @param version Release version, or `"latest"`.
 #' @return A tibble with one row per dataset.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' list_datasets()
-#' }
 #' @export
 list_datasets <- function(version = "latest") {
   rows <- load_catalog(version)$datasets
@@ -58,10 +54,8 @@ list_datasets <- function(version = "latest") {
 #'
 #' @param version Release version, or `"latest"`.
 #' @return A tibble with one row per item.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' list_items()
-#' }
 #' @export
 list_items <- function(version = "latest") {
   readr::read_tsv(

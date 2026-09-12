@@ -15,13 +15,11 @@
 #' @return An object of class `likingInitiative_dataset` with elements `data` (a
 #'   tibble), `metadata`, `dataset_code` and `version`. For several datasets, a
 #'   named list of them.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' d <- get_dataset("leeholyoak2021")
 #' head(d$data)
 #' d$metadata$rating_scale_max
 #' cite(d)
-#' }
 #' @export
 get_dataset <- function(dataset, version = "latest", timepoint = NULL) {
   if (length(dataset) > 1) {

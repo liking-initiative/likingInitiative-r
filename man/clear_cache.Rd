@@ -16,7 +16,7 @@ Invisibly, the number of bytes freed.
 Delete cached release files
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 clear_cache()
-}
+\dontshow{\}) # examplesIf}
 }

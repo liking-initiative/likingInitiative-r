@@ -24,8 +24,8 @@ Only the first rating phase of a repeated-phase dataset is included, so
 those studies do not carry extra weight in a cross-study comparison.
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 k <- get_item("kitkat")
 k$data
-}
+\dontshow{\}) # examplesIf}
 }

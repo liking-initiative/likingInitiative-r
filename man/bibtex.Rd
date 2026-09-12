@@ -18,7 +18,7 @@ A character string holding a BibTeX entry.
 BibTeX for a dataset's source publication
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 bibtex(get_dataset("leeholyoak2021"))
-}
+\dontshow{\}) # examplesIf}
 }

@@ -30,10 +30,10 @@ together are \strong{not} unique; include \code{timepoint}, or pass the \code{ti
 argument to take a single phase.
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 d <- get_dataset("leeholyoak2021")
 head(d$data)
 d$metadata$rating_scale_max
 cite(d)
-}
+\dontshow{\}) # examplesIf}
 }

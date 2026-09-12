@@ -26,4 +26,5 @@ The note is "New submission"; this is the package's first CRAN submission.
 * Tests are hermetic: they run against a local release directory named by
   `LIKING_INITIATIVE_RELEASE_DIR` and skip cleanly when none is present, so
   `R CMD check` needs no network for them.
-* Examples that download are wrapped in `\donttest{}`.
+* Examples that download are guarded with `@examplesIf interactive()`, so a
+  check run executes none of them and writes nothing to the cache.

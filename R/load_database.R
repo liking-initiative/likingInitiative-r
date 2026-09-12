@@ -5,11 +5,9 @@
 #' @param version Release version, or `"latest"`.
 #' @return A list of tibbles: `ratings`, `studies`, `datasets`, `items`. Held
 #'   in memory after the first call.
-#' @examples
-#' \donttest{
+#' @examplesIf interactive()
 #' db <- load_database()
 #' nrow(db$ratings)
-#' }
 #' @export
 load_database <- function(version = "latest") {
   resolved <- resolve_version(version)

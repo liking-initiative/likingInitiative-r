@@ -17,7 +17,7 @@ A tibble with one row per dataset.
 have a single phase; see \code{\link[=get_dataset]{get_dataset()}}.
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 list_datasets()
-}
+\dontshow{\}) # examplesIf}
 }

@@ -17,8 +17,8 @@ in memory after the first call.
 The whole corpus in one call
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 db <- load_database()
 nrow(db$ratings)
-}
+\dontshow{\}) # examplesIf}
 }

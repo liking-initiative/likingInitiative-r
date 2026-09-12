@@ -16,7 +16,7 @@ A tibble with one row per study.
 List the publications in the database
 }
 \examples{
-\donttest{
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 list_studies()
-}
+\dontshow{\}) # examplesIf}
 }
