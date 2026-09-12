@@ -8,6 +8,9 @@
 * Ubuntu (latest), R 4.5.3 (2026-03-11), oldrel-1
 * Ubuntu (latest), R Under development (unstable) (2026-06-21 r90185)
 
+win-builder, R Under development (unstable) (2026-09-10 r90519 ucrt),
+Windows Server 2022 x64, 2026-09-12.
+
 Also locally on macOS (Darwin 23.5.0), R 4.5.3, 2026-09-11, with
 `--as-cran` and remote incoming checks enabled.
 
