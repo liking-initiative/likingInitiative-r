@@ -2,9 +2,10 @@
 #'
 #' Subjective liking ratings from published decision-making studies.
 #'
-#' Data is read from versioned release files and cached locally, so a pinned
-#' version returns the same rows however long from now, and analyses keep
-#' working when the web service does not.
+#' Data is read from versioned release files, so a pinned version returns the
+#' same rows however long from now, and analyses keep working when the web
+#' service does not. Downloads are cached in the session's temporary directory;
+#' call [use_persistent_cache()] to keep them between sessions instead.
 #'
 #' Two things to get right:
 #'

@@ -104,18 +104,46 @@ NULL
 
 #' Path to the package's asset cache
 #'
-#' Honours `options(likingInitiative.cache_dir = )` so `R CMD check` and tests never
-#' write into a real user cache.
+#' Defaults to a directory inside the session's temporary directory, so the
+#' package writes nothing outside it unless the user asks for a persistent
+#' cache with [use_persistent_cache()], `options(likingInitiative.cache_dir = )`
+#' or `LIKING_INITIATIVE_CACHE_DIR`.
 #' @keywords internal
 #' @noRd
 get_cache_dir <- function(version = NULL, create = TRUE) {
   base <- getOption(
     "likingInitiative.cache_dir",
-    Sys.getenv("LIKING_INITIATIVE_CACHE_DIR", unset = tools::R_user_dir("likingInitiative", "cache"))
+    Sys.getenv("LIKING_INITIATIVE_CACHE_DIR",
+               unset = fs::path(tempdir(), "likingInitiative"))
   )
   path <- if (is.null(version)) base else fs::path(base, version)
   if (create && !fs::dir_exists(path)) fs::dir_create(path, recurse = TRUE)
   path
+}
+
+#' Keep downloaded files between sessions
+#'
+#' By default release files are cached inside the session's temporary
+#' directory, so nothing is written outside it and the cache goes away when R
+#' exits. Call this to cache in a directory that persists instead, so a later
+#' session reuses the files rather than downloading them again.
+#'
+#' The choice lasts for the session. Put
+#' `likingInitiative::use_persistent_cache()` in your `.Rprofile` to make it
+#' the default for every session, and use [clear_cache()] to remove what it
+#' has stored.
+#'
+#' @param dir Directory to cache in. Defaults to this package's per-user cache
+#'   directory, as given by [tools::R_user_dir()].
+#' @return The cache directory, invisibly.
+#' @examples
+#' # cache somewhere disposable for the rest of this session
+#' use_persistent_cache(tempfile("likingInitiative-cache-"))
+#' @export
+use_persistent_cache <- function(dir = tools::R_user_dir("likingInitiative", "cache")) {
+  options(likingInitiative.cache_dir = dir)
+  cli::cli_alert_info("Release files will be cached in {.path {dir}}.")
+  invisible(dir)
 }
 
 #' Report on the local asset cache

@@ -13,8 +13,9 @@ decision-making studies, as tibbles.
 devtools::install_github("liking-initiative/likingInitiative-r")
 ```
 
-Requires R 4.1 or newer. Data is downloaded from Zenodo on first use and
-cached locally; no account or token is needed.
+Requires R 4.1 or newer. Data is downloaded from Zenodo on first use; no
+account or token is needed. Downloads are cached in the session's temporary
+directory, so nothing is written elsewhere unless you ask for it.
 
 ## Use
 
@@ -81,6 +82,9 @@ does not carry extra weight in a cross-study comparison.
 release_info()                                    # version, counts, migrations
 get_dataset("leeholyoak2021", version = "1.6.2")  # pin for reproducibility
 cache_info(); clear_cache()
+
+use_persistent_cache()   # keep downloads between sessions, in the per-user
+                         # cache directory; add to .Rprofile to make it stick
 ```
 
 Set `options(likingInitiative.release_dir = )` or `LIKING_INITIATIVE_RELEASE_DIR` to a

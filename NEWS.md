@@ -1,3 +1,12 @@
+# likingInitiative 0.2.2
+
+* Release files are cached in the session's temporary directory by default.
+  `use_persistent_cache()` opts in to a cache that survives the session, and
+  `options(likingInitiative.cache_dir = )` or `LIKING_INITIATIVE_CACHE_DIR`
+  still name a directory directly. The package now writes nothing outside the
+  temporary directory unless asked.
+* The database's DOI is cited in the package description.
+
 # likingInitiative 0.2.1
 
 * Examples that download are guarded with `@examplesIf interactive()` rather
