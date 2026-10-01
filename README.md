@@ -93,9 +93,15 @@ build.
 
 ## Citation
 
-Please cite the database and the studies whose data you use. `cite()` with no
-argument returns the database citation, `cite(d)` a study's, and
+Please cite the paper describing the database and the studies whose data you use.
+`cite()` with no argument returns the database citation, `cite(d)` a study's, and
 `citation("likingInitiative")` the same entry in R's own format.
+
+> Fernandez, K., Goyal, S., & Krajbich, I. (2026). A database of subjective
+> evaluation ratings for decision-making research. Retrieved from
+> https://osf.io/preprints/psyarxiv/af2nr_v1
+
+To cite the data themselves, cite the Zenodo record:
 
 > Fernandez, K., Goyal, S., & Krajbich, I. (2026). The Liking Initiative: a
 > database of subjective evaluation ratings for decision-making research

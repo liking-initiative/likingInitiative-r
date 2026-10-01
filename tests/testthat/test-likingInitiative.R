@@ -113,6 +113,7 @@ test_that("cite() returns the study only, and cite() alone returns ours", {
   expect_match(txt, "Holyoak")
   expect_false(grepl("Fernandez", txt))
   expect_match(cite(), "Fernandez")
+  expect_match(cite(), "psyarxiv/af2nr_v1", fixed = TRUE)
 })
 
 test_that("bibtex is well formed", {
