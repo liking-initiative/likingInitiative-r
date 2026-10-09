@@ -1,5 +1,6 @@
 # likingInitiative — R
 
+[![CRAN status](https://www.r-pkg.org/badges/version/likingInitiative)](https://cran.r-project.org/package=likingInitiative)
 [![R-CMD-check](https://github.com/liking-initiative/likingInitiative-r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/liking-initiative/likingInitiative-r/actions/workflows/R-CMD-check.yaml)
 [![DOI](https://img.shields.io/badge/data%20DOI-10.5281%2Fzenodo.22216442-blue)](https://doi.org/10.5281/zenodo.22216442)
 
@@ -9,8 +10,10 @@ decision-making studies, as tibbles.
 ## Install
 
 ```r
-# install.packages("devtools")
-devtools::install_github("liking-initiative/likingInitiative-r")
+install.packages("likingInitiative")
+
+# development version
+# devtools::install_github("liking-initiative/likingInitiative-r")
 ```
 
 Requires R 4.1 or newer. Data is downloaded from Zenodo on first use; no
